@@ -1,4 +1,4 @@
-FROM deployme-base
+FROM docker-python-deploy-base
 
 ADD wheelhouse /wheelhouse
 RUN . /appenv/bin/activate; \
