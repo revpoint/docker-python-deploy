@@ -1,10 +1,9 @@
 FROM docker-python-deploy-base
 
-RUN apk add --update python-dev \
+RUN apk-install python-dev \
     build-base \
     libffi-dev \
-    openssl-dev \
-    && rm -rf /var/cache/apk/*
+    openssl-dev
 
 RUN . /appenv/bin/activate; \
     pip install wheel
