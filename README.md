@@ -13,6 +13,16 @@ The base docker image used is [gliderlabs/docker-alpine](https://github.com/glid
 | docker-python-deploy-base | ~65 | active |
 | docker-python-deploy-build | ~225 | active |
 
+## Quickstart
+
+Build: `./build.sh`
+
+Run: `./run.sh`
+
+Open `<host>:8081`
+
+Note: `<host>` for boot2docker/kitematic is provided with `boot2docker ip` and `docker-machine ip`, respectively.
+
 ## Python App
 Example app implements a small web server, responding with `Hello World!` when accessed.
 
