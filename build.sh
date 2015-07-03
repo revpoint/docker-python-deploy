@@ -10,3 +10,4 @@ docker run --rm \
        -v "$(pwd)":/application -v "$(pwd)"/wheelhouse:/wheelhouse \
        docker-python-deploy-builder;
 docker build -t docker-python-deploy-run -f run.docker .;
+docker build -t docker-python-deploy-test -f test.docker .;

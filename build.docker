@@ -15,6 +15,6 @@ ENV PIP_FIND_LINKS=/wheelhouse
 VOLUME /wheelhouse
 VOLUME /application
 
-ENTRYPOINT . /appenv/bin/activate; \
-           cd /application; \
-           pip wheel .
+ENTRYPOINT . /appenv/bin/activate && \
+           cd /application && \
+           pip wheel -r requirements.txt

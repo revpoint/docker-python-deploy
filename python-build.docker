@@ -1,0 +1,35 @@
+FROM docker-python-deploy-base
+
+VOLUME /usr/python
+
+ENV PYBUILD_VERSION 2.7
+
+# Install Requirements and Download Python Source
+RUN apk-install python-dev \
+    build-base \
+    libffi-dev \
+    openssl-dev \
+    expat-dev \
+    zlib-dev \
+    ncurses-dev \
+    bzip2-dev \
+		sqlite-dev \
+    tcl-dev \
+    linux-headers \
+    mercurial \
+    ca-certificates && \
+    hg clone https://hg.python.org/cpython cpython
+
+# Build Python
+WORKDIR /cpython
+ENTRYPOINT hg update $PYBUILD_VERSION && \
+    ./configure \
+		--prefix=/usr/python/py${PYBUILD_VERSION} \
+		--enable-shared \
+		--with-threads \
+		--with-system-ffi \
+		--enable-unicode=ucs4 \
+		--with-dbmliborder=ndbm \
+    --disable-rpath && \
+	  make && \
+    make install
