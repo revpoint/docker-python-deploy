@@ -1,4 +1,4 @@
-FROM docker-python-deploy-base
+FROM gliderlabs/alpine:latest
 
 VOLUME $HOME/.python/versions
 
