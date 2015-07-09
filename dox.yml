@@ -1,0 +1,19 @@
+testing:
+  images:
+    - debian:jessie
+  add:
+    - requirements.txt
+    - dev-requirements.txt
+  prep:
+    - pip install -U -r requirements.txt -r dev-requirements.txt
+  commands:
+    - export PYTHONHASHSEED=$RANDOM
+    - py.test dockerapp {posargs}
+
+testing:pep8:
+  commands:
+    - flake8
+
+testing:cover:
+  commands:
+    - /bin/echo "hello"

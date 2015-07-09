@@ -1,9 +1,9 @@
-FROM docker-python-deploy-base
+FROM docker-python-deploy-python
 
+# install app
 ADD wheelhouse /wheelhouse
-RUN . /appenv/bin/activate; \
-    pip install --no-index -f wheelhouse DockerApp
+RUN pip install --no-index -f wheelhouse DockerApp
 
 EXPOSE 8081
 
-ENTRYPOINT . /appenv/bin/activate; run-the-app
+ENTRYPOINT run-the-app

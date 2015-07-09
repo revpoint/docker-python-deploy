@@ -1,21 +1,12 @@
-FROM docker-python-deploy-run
-
-ENV WHEELHOUSE=/wheelhouse
-ENV PIP_WHEEL_DIR=/wheelhouse
-ENV PIP_FIND_LINKS=/wheelhouse
-
-ENV PYTHON_VERSIONS=/root/.pyenv/versions
+FROM docker-python-deploy-python
 
 ADD . /app_files
-ADD .python $PYTHON_VERSIONS
 ADD wheelhouse /wheelhouse
-RUN . /appenv/bin/activate; \
-    pip install --no-index -f wheelhouse -r /app_files/requirements.txt \
-    -r /app_files/dev-requirements.txt
 
-RUN virtualenv -p $PYTHON_VERSIONS/2.7.10/bin/python /py27
+RUN pip install --no-index -f wheelhouse -r /app_files/dev-requirements.txt
+
+RUN virtualenv /py27
 #RUN virtualenv -p $PYTHON_VERSIONS/3.4.3/bin/python /py34
 
-ENTRYPOINT . /appenv/bin/activate; \
-    cd /app_files && \
+ENTRYPOINT cd /app_files && \
     tox /app_files
