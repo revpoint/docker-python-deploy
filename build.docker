@@ -1,12 +1,15 @@
 FROM docker-python-deploy-python
 
+ADD . /application
+
 # setup python environment
 RUN apk-install python-dev \
     build-base \
     libffi-dev \
     openssl-dev
 
-RUN pip install wheel
+RUN pip install wheel && \
+    mkdir -p /root/.cache/pip
 
 ENV WHEELHOUSE=/wheelhouse
 ENV PIP_WHEEL_DIR=/wheelhouse
@@ -14,6 +17,8 @@ ENV PIP_FIND_LINKS=/wheelhouse
 
 VOLUME /wheelhouse
 VOLUME /application
+VOLUME /root/.cache/pip
 
 ENTRYPOINT cd /application && \
-           pip wheel -r requirements.txt
+           pip wheel . -r requirements.txt \
+              -r dev-requirements.txt

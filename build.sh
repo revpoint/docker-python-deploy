@@ -10,7 +10,9 @@ docker build -t docker-python-deploy-python -f python-base.docker .;
 # a builder to build all application requirements
 docker build -t docker-python-deploy-builder -f build.docker .;
 docker run --rm \
-       -v "$(pwd)":/application -v "$(pwd)"/wheelhouse:/wheelhouse \
+       -v "$(pwd)":/application \
+       -v "$(pwd)"/wheelhouse:/wheelhouse \
+       -v "$(pwd)"/.cache/pip:/root/.cache/pip \
        docker-python-deploy-builder;
 
 # the final production image, base python plus pre-built wheels
