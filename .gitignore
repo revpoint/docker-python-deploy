@@ -1,6 +1,7 @@
-wheelhouse
+.wheelhouse
 .python
 .tox
 .cache
 .dox
 .DS_Store
+test/test
