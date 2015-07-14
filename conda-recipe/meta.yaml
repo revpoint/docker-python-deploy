@@ -1,0 +1,22 @@
+package:
+  name: dockerapp
+  version: "0.1"
+
+source:
+  path: ../
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - klein
+  run:
+    - python
+    - klein
+
+test:
+  requires:
+    - pytest
+  commands:
+    - py.test -h
+#    - py.test -x --pyargs dockerapp

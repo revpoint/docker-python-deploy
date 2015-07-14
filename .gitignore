@@ -5,3 +5,5 @@
 .dox
 .DS_Store
 test/test
+*.pyc
+**/*.pyc
