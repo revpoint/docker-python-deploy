@@ -1,3 +1,0 @@
-[console_scripts]
-run-the-app = dockerapp:main
-

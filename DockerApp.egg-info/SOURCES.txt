@@ -1,7 +1,0 @@
-setup.py
-DockerApp.egg-info/PKG-INFO
-DockerApp.egg-info/SOURCES.txt
-DockerApp.egg-info/dependency_links.txt
-DockerApp.egg-info/entry_points.txt
-DockerApp.egg-info/top_level.txt
-dockerapp/__init__.py

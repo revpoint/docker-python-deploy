@@ -1,10 +1,12 @@
 FROM docker-pydeploy-miniconda
 
-COPY . /app
+COPY build_conda_deps.sh /app/build_conda_deps.sh
 
 WORKDIR /app
-RUN conda install --file requirements.txt
+RUN conda install conda-build && \
+    ./build_conda_deps.sh
 
-RUN python setup.py install
+RUN conda build ./conda-recipe && \
+    conda install --use-local dockerapp
 
 CMD ["python"]
