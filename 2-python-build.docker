@@ -1,4 +1,4 @@
-FROM docker-python-deploy-base
+FROM jangl-docker-base
 
 VOLUME $HOME/.pyenv/versions
 VOLUME $HOME/.pyenv/cache

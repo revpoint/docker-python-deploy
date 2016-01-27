@@ -1,4 +1,4 @@
-FROM docker-python-deploy-python
+FROM jangl-docker-python
 
 ADD . /app_files
 ADD wheelhouse /wheelhouse

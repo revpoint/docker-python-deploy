@@ -1,0 +1,9 @@
+FROM jangl-docker-python
+
+# install app
+ADD wheelhouse /wheelhouse
+RUN pip install --no-index -f wheelhouse jangl-integrations-email
+
+EXPOSE 5000
+
+ENTRYPOINT ["run-server"]

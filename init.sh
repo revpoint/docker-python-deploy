@@ -7,10 +7,10 @@ set -e;
 rm -rf .python/*
 
 # build the base file with pyenv
-docker build -t docker-python-deploy-base -f base.docker .;
+docker build -t jangl-docker-base -f 1-base.docker .
 
 # build a master python builder for building versions of python for testing
-docker build -t python-builder -f python-build.docker .
+docker build -t python-builder -f 2-python-build.docker .
 
 # build each version of python that we may use
 # todo: parameterize this via config file

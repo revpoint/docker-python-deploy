@@ -2,7 +2,7 @@
 #
 # Contains default python with pip, along with base
 
-FROM docker-python-deploy-base
+FROM jangl-docker-base
 
 ENV DEFAULT_PYTHON=2.7.10
 

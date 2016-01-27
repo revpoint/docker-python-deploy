@@ -1,4 +1,4 @@
-FROM docker-python-deploy-python
+FROM jangl-docker-python
 
 # setup python environment
 RUN apk-install python-dev \
@@ -20,5 +20,4 @@ VOLUME /application
 VOLUME /root/.cache/pip
 
 ENTRYPOINT cd /application && \
-           pip wheel . -r requirements.txt \
-              -r dev-requirements.txt
+           pip wheel . -r requirements.txt -r dev-requirements.txt
