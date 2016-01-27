@@ -1,8 +1,8 @@
-FROM jangl-docker-python
+FROM docker.jangl.com/python-base:2.7.11
 
 # install app
 ADD wheelhouse /wheelhouse
-RUN pip install --no-index -f wheelhouse jangl-integrations-email
+RUN pip install --no-index -f wheelhouse
 
 EXPOSE 5000
 

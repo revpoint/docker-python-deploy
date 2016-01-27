@@ -4,7 +4,7 @@
 
 FROM jangl-docker-base
 
-ENV DEFAULT_PYTHON=2.7.10
+ENV DEFAULT_PYTHON=2.7.11
 
 ADD .python/$DEFAULT_PYTHON /root/.pyenv/versions/$DEFAULT_PYTHON
 RUN eval "$(/root/.pyenv/bin/pyenv init -)" && \

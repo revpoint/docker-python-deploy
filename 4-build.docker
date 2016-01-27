@@ -1,4 +1,4 @@
-FROM jangl-docker-python
+FROM docker.jangl.com/python-base:2.7.11
 
 # setup python environment
 RUN apk-install python-dev \
@@ -6,7 +6,7 @@ RUN apk-install python-dev \
     libffi-dev \
     openssl-dev
 
-ADD . /application
+ADD . /app
 
 RUN pip install wheel && \
     mkdir -p /root/.cache/pip
@@ -19,5 +19,5 @@ VOLUME /wheelhouse
 VOLUME /application
 VOLUME /root/.cache/pip
 
-ENTRYPOINT cd /application && \
-           pip wheel . -r requirements.txt -r dev-requirements.txt
+ENTRYPOINT cd /app && \
+           pip wheel -r requirements.txt
